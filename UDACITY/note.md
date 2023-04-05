@@ -106,7 +106,6 @@ Predicting Time: 0.07 s
 
 # SVM 
 
-<<<<<<< HEAD
 ## Welcome to SVM
 ## Spararing Line
 "Support Vector Machine"（支持向量机）。
@@ -118,7 +117,7 @@ Predicting Time: 0.07 s
 MARGIN 是 SVM 的一个重要概念，因为 SVM 的核心目标是最大化 MARGIN，即找到一个最优的超平面，使得这个超平面与最近的数据点的距离最大。这个距离被称为“MARGIN”，因为它可以看作是一个宽度，这个宽度将不同的数据点分开。
 
 最大化 MARGIN 有助于减少过拟合现象，因为 SVM 希望找到一个具有泛化性能的最优超平面，而不是过度拟合训练数据。同时，最大化 MARGIN 还可以使得分类器更具有鲁棒性，即对数据噪声和误差更加稳健。
-=======
+
 ## 1 Welcome to SVM
 
 SUPPORT VECTOR MACHINE
@@ -213,4 +212,69 @@ C是一个正则化参数，通过控制模型拟合训练数据的能力和泛�
 **Gamma $\gamma$ Parameter:**
 
 $\gamma$ (Gamma)控制着决策边界的形状。它定义了单个培训示例影响范围有多远，低值意味着“远”，高值意味着“近”。直观地说，小伽玛意味着更大相似半径, 大伽玛意味着更小相似半径, 这反过来会导致模型对数据进行过度或不足配适。
->>>>>>> 18f054795aa8dcd08f32af0b0fefd5b83bf6c359
+
+## Author ID Accuracy
+```python
+No. of Chris training emails :  7936
+No. of Sara training emails :  7884
+Training Time: 208.603 s
+Predicting Time: 25.029 s
+[0 0 1 ... 1 0 0]
+0.9840728100113766
+```
+
+after adding this:
+```
+features_train = features_train[:int(len(features_train)/100)]
+labels_train = labels_train[:int(len(labels_train)/100)]
+```
+
+```python
+No. of Chris training emails :  7936
+No. of Sara training emails :  7884
+Training Time: 0.108 s
+Predicting Time: 1.239 s
+[0 1 1 ... 1 0 1]
+0.8845278725824801
+```
+
+change the kernel from 'linear' to 'rbf':
+```python
+No. of Chris training emails :  7936
+No. of Sara training emails :  7884
+Training Time: 0.705 s
+Predicting Time: 4.26 s
+[0 1 0 ... 1 0 0]
+0.8953356086461889
+```
+
+```python
+No. of Chris training emails :  7936
+No. of Sara training emails :  7884
+current C parament: 10
+Training Time: 0.138 s
+Predicting Time: 1.698 s
+[0 1 0 ... 1 0 0]
+Accuracy: 0.8998862343572241
+-------------------
+current C parament: 100
+Training Time: 0.11 s
+Predicting Time: 1.717 s
+[0 1 0 ... 1 0 0]
+Accuracy: 0.8998862343572241
+-------------------
+current C parament: 1000
+Training Time: 0.11 s
+Predicting Time: 1.747 s
+[0 1 0 ... 1 0 0]
+Accuracy: 0.8998862343572241
+-------------------
+current C parament: 10000
+Training Time: 0.107 s
+Predicting Time: 1.93 s
+[0 1 0 ... 1 0 0]
+Accuracy: 0.8998862343572241
+-------------------
+```
+
+
