@@ -1,8 +1,12 @@
 # MachineLearning
 
-## <center>Types of machine learning problems</center>
+[TOC]
 
-### 1 On basis of the nature of the learning “signal” or “feedback” available to a learning system (根据学习系统可用的“信号”或“反馈”的性质。)
+
+
+## Types of machine learning problems
+
+### On basis of the nature of the learning “signal” or “feedback” available to a learning system (根据学习系统可用的“信号”或“反馈”的性质。)
 
 * Supervised learning(监督学习):The model or algorithm is presented with example inputs and their desired outputs and then finds patterns and connections between the input and the output. The goal is to learn a general rule that maps inputs to outputs. The training process continues until the model achieves the desired level of accuracy on the training data. Some real-life examples are:(该模型或算法会提供示例输入和期望输出，然后找到输入和输出之间的模式和连接。目标是学习将输入映射到输出的一般规则。训练过程将持续进行，直到该模型在训练数据上达到所需的准确度水平。以下是一些现实生活中的例子) 
    * [Classification](https://www.geeksforgeeks.org/regression-classification-supervised-machine-learning/)
@@ -18,11 +22,14 @@
 
 * Reinforcement learning(强化学习)：A computer program interacts with a dynamic environment in which it must perform a certain goal (such as driving a vehicle or playing a game against an opponent). The program is provided feedback in terms of rewards and punishments as it navigates its problem space.(计算机程序与动态环境交互，在其中必须完成某个目标（如驾驶车辆或与对手玩游戏）。该程序在导航其问题空间时会得到奖励和惩罚的反馈。)
 
-
 On the basis of these machine learning tasks/problems, we have a number of algorithms that are used to accomplish these tasks. Some commonly used machine learning algorithms are Linear Regression, Logistic Regression, Decision Tree, SVM(Support vector machines), Naive Bayes, KNN(K nearest neighbors), K-Means, Random Forest, etc. Note: All these algorithms will be covered in upcoming articles.
 基于这些机器学习任务/问题，我们有许多算法用于完成这些任务。一些常用的机器学习算法包括线性回归、逻辑回归、决策树、支持向量机（SVM）、朴素贝叶斯、K最近邻（KNN）、K均值聚类和随机森林等。注意：所有这些算法将在接下来的文章中介绍。
 
-## <center>Terminologies of Machine Learning</center>
+------
+
+
+
+## Terminologies of Machine Learning
 
 * Model(模型) A model is a specific representation learned from data by applying some machine learning algorithm. A model is also called a hypothesis.
 模型是通过应用某些机器学习算法从数据中学习到的特定表示。模型也被称为假设。
