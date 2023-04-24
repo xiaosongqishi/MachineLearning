@@ -39,7 +39,11 @@ sklearn: 1.2.2
 
 今天的任务是在Python交互环境中练习Python编程语言的基本语法和重要SciPy数据结构。
 
-练习任务包括：使用列表和流控制在Python中工作；使用NumPy数组；创建Matplotlib中简单图形；以及处理Pandas Series和DataFrames等操作。例如，下面是一个创建Pandas DataFrame的简单示例。
+练习任务包括：
+* 使用列表和流控制在Python中工作；
+* 使用NumPy数组；创建Matplotlib中简单图形；以及处理Pandas Series和DataFrames等操作。
+
+例如，下面是一个创建Pandas DataFrame的简单示例。
 
 ```python
 # dataframe
