@@ -248,7 +248,7 @@ Predicting Time: 4.26 s
 0.8953356086461889
 ```
 
-```python
+```Shell
 No. of Chris training emails :  7936
 No. of Sara training emails :  7884
 current C parament: 10
@@ -276,5 +276,4 @@ Predicting Time: 1.93 s
 Accuracy: 0.8998862343572241
 -------------------
 ```
-
 
