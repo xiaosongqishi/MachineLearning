@@ -1452,41 +1452,86 @@ print("gbr: {:.4f} ({:.4f})".format(score.mean(), score.std()))
 scores['gbr'] = (score.mean(), score.std())
 ```
 
+```
+gbr: 0.1121 (0.0165)
+```
+
 
 
 ## 训练模型
 
 ```python
 print('stack_gen')
+%time
 stack_gen_model = stack_gen.fit(np.array(X), np.array(train_labels))
 ```
 
 ```python
 print('lightgbm')
 lgb_model_full_data = lightgbm.fit(X, train_labels)
+print('finished fitting')
 ```
 
 ```python
-print('xgboost'
+print('xgboost')
 xgb_model_full_data = xgboost.fit(X, train_labels)
+print('finished fitting')
 ```
 
 ```python
 print('Svr')
 svr_model_full_data = svr.fit(X, train_labels)
+print('finished fitting')
 ```
 
 ```python
 print('Ridge')
 ridge_model_full_data = ridge.fit(X, train_labels)
+print('finished fitting')
+joblib.dump(ridge_model_full_data, 'models/ridge_model_full_data.joblib')
+print('dump completed!')
 ```
 
 ```python
 print('RandomForest')
 rf_model_full_data = rf.fit(X, train_labels)
+print('finished fitting')
+joblib.dump(rf_model_full_data, 'models/rf_model_full_data.joblib')
+print('dump completed!')
 ```
 
 ```python
 print('GradientBoosting')
 gbr_model_full_data = gbr.fit(X, train_labels)
+print('finished fitting')
+joblib.dump(gbr_model_full_data, 'models/gbr_model_full_data.joblib')
+print('dump completed!')
 ```
+
+
+
+## 混合模型
+
+```python
+# Blend models in order to make the final predictions more robust to overfitting
+def blended_predictions(X):
+    return ((0.1 * ridge_model_full_data.predict(X)) + \
+            (0.2 * svr_model_full_data.predict(X)) + \
+            (0.1 * gbr_model_full_data.predict(X)) + \
+            (0.1 * xgb_model_full_data.predict(X)) + \
+            (0.1 * lgb_model_full_data.predict(X)) + \
+            (0.05 * rf_model_full_data.predict(X)) + \
+            (0.35 * stack_gen_model.predict(np.array(X))))
+```
+
+
+这段代码实现了多个模型的blending,以得到更稳定的预测结果。
+具体步骤为:
+1. 定义了7个模型的变量,ridge_model_full_data到stack_gen_model。这些模型可能是在完整数据集上预训练好的。
+2. blended_predictions()函数将对新的输入数据X产生预测。
+3. 该函数通过加权求和的方式将7个模型的预测结果组合在一起。权重分别为0.1、0.2、0.1、0.1、0.1、0.05和0.35。
+4. 权重的设置可能是基于交叉验证中各个模型的表现来确定的,表现更优的模型拥有更高的权重。
+5. 通过多个模型的预测结果组合,可以减少过拟合的风险,得到更稳定的预测。如果某个模型在新数据上表现不佳,其他模型的预测可以纠正它。
+6. 该方法属于stacking ensemble方法的一种,通过对各个基模型的预测进行加权和得到最终的预测结果。
+7. 相比于直接对预测结果进行平均,设置不同的权重可以给予表现更优的模型更大的影响力,这可以提高ensemble的效果。
+
