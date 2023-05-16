@@ -1,0 +1,8 @@
+skewness和kurtosis是描述数据分布形状的两个统计量。
+skewness用来测量数据分布的非对称性,它反映了数据分布相对于平均值的不对称程度。正的skewness表示分布的右尾更长,负的skewness表示分布的左尾更长。skewness为0表示分布呈对称形状。
+kurtosis用来测量数据分布相对于正态分布的尖峰程度。正的kurtosis表示分布相对于正态分布更尖,负的kurtosis表示分布相对于正态分布更平。kurtosis为3表示分布是正态分布。
+所以,skewness和kurtosis这两个统计量可以用于检测数据是否满足正态分布的要求,并衡量其离正态分布的程度。
+举例来说:
+一个右偏的分布其skewness>0;一个左偏的分布其skewness<0。
+一个较尖的分布其kurtosis>3;一个较平的分布其kurtosis<3。
+如果分布呈正态,则skewness = 0,kurtosis = 3。
